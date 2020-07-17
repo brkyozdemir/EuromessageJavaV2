@@ -7,4 +7,5 @@ public class Constants {
     static final String DATASOURCE = "visistore";
     static final String REGISTER_URL = "https://store.therelated.com/rest/V1/customers";
     static final String GET_CUSTOMER = "https://store.therelated.com/rest/V1/customers/me";
+    static final String LOGIN_URL = "https://store.therelated.com/rest/V1/integration/customer/token";
 }

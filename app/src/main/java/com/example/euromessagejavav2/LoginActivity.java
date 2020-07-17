@@ -22,10 +22,11 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+import static com.example.euromessagejavav2.Constants.LOGIN_URL;
+
 public class LoginActivity extends AppCompatActivity {
     private Button signIn;
     private EditText mUsername, mPassword;
-    private final String LOGIN_URL = "https://store.therelated.com/rest/V1/integration/customer/token";
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private TextView mRegister;
 
@@ -85,7 +86,7 @@ public class LoginActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            Response response = null;
+            Response response;
             try{
                 response = okHttpClient.newCall(request).execute();
                 System.out.println(json.toString());
