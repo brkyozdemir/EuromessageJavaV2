@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_user"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/euromsg"
+        />
+
+    <EditText
+        android:id="@+id/et_name"
+        android:textColor="#ffffff"
+        android:background="@drawable/btn_rounded"
+        android:layout_width="260dp"
+        android:padding="15dp"
+        android:layout_height="60dp"
+        android:fontFamily="@font/poppins_light"
+        android:layout_below="@+id/iv_user"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/et_name"
+        android:layout_alignStart="@+id/et_name"
+        android:fontFamily="@font/poppins_light"
+        android:layout_below="@+id/iv_user"
+        android:layout_marginTop="2dp"
+        android:text="Name"
+        android:textColor="#fff"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/et_surname"
+        android:textColor="#ffffff"
+        android:background="@drawable/btn_rounded"
+        android:layout_width="260dp"
+        android:layout_height="60dp"
+        android:fontFamily="@font/poppins_light"
+        android:padding="15dp"
+        android:textColorHint="@color/colorPrimary"
+        android:layout_below="@+id/et_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        />
+
+    <TextView
+        android:id="@+id/tv_surname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_light"
+        android:layout_alignLeft="@+id/et_name"
+        android:layout_alignStart="@+id/et_name"
+        android:layout_below="@+id/et_name"
+        android:layout_marginTop="22dp"
+        android:text="Surname"
+        android:textColor="#fff"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/et_reg_email"
+        android:textColor="#ffffff"
+        android:background="@drawable/btn_rounded"
+        android:layout_width="260dp"
+        android:fontFamily="@font/poppins_light"
+        android:padding="15dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/et_surname"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        />
+
+    <TextView
+        android:id="@+id/tv_reg_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_light"
+        android:layout_alignLeft="@+id/et_surname"
+        android:layout_alignStart="@+id/et_surname"
+        android:layout_below="@+id/et_surname"
+        android:layout_marginTop="22dp"
+        android:text="Email"
+        android:textColor="#fff"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/et_reg_password"
+        android:textColor="#ffffff"
+        android:background="@drawable/btn_rounded"
+        android:fontFamily="@font/poppins_light"
+        android:layout_width="260dp"
+        android:layout_height="60dp"
+        android:padding="15dp"
+        android:layout_below="@+id/et_reg_email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        />
+
+    <TextView
+        android:id="@+id/tv_reg_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/et_name"
+        android:fontFamily="@font/poppins_light"
+        android:layout_alignStart="@+id/et_name"
+        android:layout_below="@+id/et_reg_email"
+        android:layout_marginTop="22dp"
+        android:text="Password"
+        android:textColor="#fff"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btn_register"
+        android:background="@drawable/btn_rounded"
+        android:textColor="#ffffff"
+        android:layout_width="260dp"
+        android:fontFamily="@font/poppins_light"
+        android:layout_height="60dp"
+        android:layout_below="@+id/et_reg_password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="Register" />
+
+    <TextView
+        android:id="@+id/backToLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back To Login"
+        android:layout_below="@id/btn_register"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_light"
+        android:layout_centerHorizontal="true"/>
+
+
+
+</RelativeLayout>

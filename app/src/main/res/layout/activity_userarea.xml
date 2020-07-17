@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".UserAreaActivity"
+    android:background="#fff">
+
+    <ImageView
+        android:id="@+id/euromsgJava"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:src="@drawable/express"
+        android:textSize="50px"
+        android:padding="16px"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/areaUsername"
+        tools:layout_editor_absoluteX="145dp" />
+
+    <TextView
+        android:id="@+id/token"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selamlar"
+        android:background="@drawable/btn_rounded"
+        android:textSize="50px"
+        android:fontFamily="@font/poppins_light"
+        android:padding="16dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/areaUsername"
+        app:layout_constraintRight_toRightOf="parent"
+        android:fontFamily="@font/poppins_light"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/token"
+        android:text="username"
+        android:padding="16dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="50px"
+        android:layout_marginBottom="16px"
+        android:background="@drawable/btn_rounded"/>
+
+    <TextView
+        android:id="@+id/tv_slider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="For more information check RMC"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/token" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

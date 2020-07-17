@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "850340821112",
+    "firebase_url": "https://euromessagebeo.firebaseio.com",
+    "project_id": "euromessagebeo",
+    "storage_bucket": "euromessagebeo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850340821112:android:1a8a84c312fead38b0958d",
+        "android_client_info": {
+          "package_name": "com.example.euromessagejava"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "850340821112-rj7p32v2k84g6tljgpp18es4tnbfe73c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC50_7f0FpQU41JPMGJtvkglKzFTmwwlqc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "850340821112-rj7p32v2k84g6tljgpp18es4tnbfe73c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850340821112:android:ee4eb9337ec9c30ab0958d",
+        "android_client_info": {
+          "package_name": "com.example.euromessagejavav2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "850340821112-rj7p32v2k84g6tljgpp18es4tnbfe73c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC50_7f0FpQU41JPMGJtvkglKzFTmwwlqc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "850340821112-rj7p32v2k84g6tljgpp18es4tnbfe73c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
