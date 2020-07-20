@@ -18,8 +18,7 @@
         android:textColor="@color/colorPrimary"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/areaUsername"
-        tools:layout_editor_absoluteX="145dp" />
+        app:layout_constraintBottom_toTopOf="@id/areaUsername" />
 
     <TextView
         android:id="@+id/token"

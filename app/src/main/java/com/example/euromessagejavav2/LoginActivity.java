@@ -92,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
                 System.out.println(json.toString());
                 if(response.message().equals("OK")){
                     Intent i = new Intent(LoginActivity.this,
-                            UserAreaActivity.class);
+                            MainActivity.class);
                     i.putExtra("token", response.body().string());
                     i.putExtra("username", Email);
                     startActivity(i);

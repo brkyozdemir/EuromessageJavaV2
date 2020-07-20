@@ -157,7 +157,7 @@ public class UserModel {
         this.extension_attributes = extension_attributes;
     }
 
-    public static class AddressBean{
+    public static class AddressBean {
         private int id;
         private int customer_id;
 
@@ -178,7 +178,7 @@ public class UserModel {
         }
     }
 
-    public static class SubscribeBean{
+    public static class SubscribeBean {
         private boolean is_subscribed;
 
         public boolean isIs_subscribed() {
