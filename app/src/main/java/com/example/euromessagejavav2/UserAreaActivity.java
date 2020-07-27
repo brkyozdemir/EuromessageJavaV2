@@ -1,5 +1,6 @@
 package com.example.euromessagejavav2;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -49,12 +50,17 @@ public class UserAreaActivity extends Fragment {
     public static String APP_ALIAS = Constants.APP_ALIAS;
     private static final int FIRST_ITEM_CAROUSEL = 0;
     private String pushToken;
+    private ProgressDialog progressDialog;
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_userarea, container, false);
+
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
 
         final TextView token = view.findViewById(R.id.token);
         final TextView tUsername = view.findViewById(R.id.areaUsername);
@@ -100,6 +106,7 @@ public class UserAreaActivity extends Fragment {
                                 Log.w("Berkay UserArea", json.get("id").toString());
                                 token.setText(appToken);
                                 tUsername.setText(userModel.getId());
+                                progressDialog.dismiss();
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }

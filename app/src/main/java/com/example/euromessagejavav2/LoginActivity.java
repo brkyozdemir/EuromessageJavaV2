@@ -1,5 +1,6 @@
 package com.example.euromessagejavav2;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -29,11 +30,16 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mUsername, mPassword;
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private TextView mRegister;
+    private ProgressDialog progressDialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        progressDialog = new ProgressDialog(this);
+
+
 
         signIn = findViewById(R.id.signInBtn);
         mUsername = findViewById(R.id.username);
@@ -47,6 +53,8 @@ public class LoginActivity extends AppCompatActivity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressDialog.setMessage("Loading...");
+                progressDialog.show();
                 String Email = mUsername.getText().toString();
                 String Password = mPassword.getText().toString();
                 new LoginUser().execute(Email, Password);
@@ -64,6 +72,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     OkHttpClient client = new OkHttpClient();
+
     public class LoginUser extends AsyncTask<String, Void, String> {
         public Request request;
 
@@ -87,10 +96,11 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             Response response;
-            try{
+            try {
                 response = okHttpClient.newCall(request).execute();
                 System.out.println(json.toString());
-                if(response.message().equals("OK")){
+                if (response.message().equals("OK")) {
+                    progressDialog.dismiss();
                     Intent i = new Intent(LoginActivity.this,
                             MainActivity.class);
                     i.putExtra("token", response.body().string());
@@ -99,14 +109,14 @@ public class LoginActivity extends AppCompatActivity {
                     finish();
                     showToast("Login Successful!");
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             return null;
         }
     }
 
-    public void showToast(final String Text){
+    public void showToast(final String Text) {
         this.runOnUiThread(new Runnable() {
             @Override
             public void run() {

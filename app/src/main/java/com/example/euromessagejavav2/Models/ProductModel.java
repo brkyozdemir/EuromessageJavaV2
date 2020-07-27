@@ -13,6 +13,22 @@ public class ProductModel {
     private String type_id;
     private String created_at;
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    private String imageUrl;
+
+    public ProductModel(String name, String price, String imageUrl) {
+        this.name = name;
+        this.price = price;
+        this.imageUrl = imageUrl;
+    }
+
     public String getId() {
         return id;
     }

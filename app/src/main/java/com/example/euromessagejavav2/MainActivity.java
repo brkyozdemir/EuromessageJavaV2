@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -14,10 +16,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.example.euromessagejavav2.Fragments.CategoryFragment;
 import com.example.euromessagejavav2.Fragments.ProductsFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.BuildConfig;
 import com.google.firebase.iid.FirebaseInstanceId;
@@ -54,6 +60,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Bundle userBundle;
     private UserAreaActivity userAreaActivity;
     private String appToken;
+    private CategoryFragment categoryFragment;
+    private TextView tvDrawerEmail;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -63,15 +71,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
+
         Intent intent = getIntent();
         appToken = intent.getStringExtra("token");
         Log.w("Berkay", appToken);
+        String email = intent.getStringExtra("username");
 
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
         navigationView.setNavigationItemSelectedListener(this);
         userBundle = new Bundle();
         userAreaActivity = new UserAreaActivity();
+        categoryFragment = new CategoryFragment();
+        tvDrawerEmail = headerView.findViewById(R.id.tv_drawerEmail);
+
 
         initializeEuroMessage();
         setUI();
@@ -89,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     userAreaActivity).commit();
             navigationView.setCheckedItem(R.id.nav_home);
         }
-
+        tvDrawerEmail.setText(email);
 
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
@@ -136,6 +152,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                    Fragment selectedFragment = null;
+
+                    switch (menuItem.getItemId()) {
+                        case R.id.bottomNav_home:
+                            userBundle.putString("token", appToken.split("\"")[1]);
+                            userAreaActivity.setArguments(userBundle);
+                            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                                    userAreaActivity).commit();
+                            break;
+                        case R.id.bottomNav_category:
+                            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                                    categoryFragment).commit();
+                            break;
+                        case R.id.bottomNav_comingSoon:
+                            Toast.makeText(getApplicationContext(), "Coming Soon...", Toast.LENGTH_SHORT).show();
+                            break;
+                    }
+
+                    return true;
+                }
+            };
+
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
@@ -168,18 +210,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
-            case R.id.nav_products:
-                userBundle.putString("token", appToken.split("\"")[1]);
-                ProductsFragment productsFragment = new ProductsFragment();
-                productsFragment.setArguments(userBundle);
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        productsFragment).commit();
-                break;
             case R.id.nav_home:
                 userBundle.putString("token", appToken.split("\"")[1]);
                 userAreaActivity.setArguments(userBundle);
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         userAreaActivity).commit();
+                break;
+            case R.id.nav_categories:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new CategoryFragment()).commit();
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);
@@ -238,5 +277,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
 
+    }
+
+    public void switchContent(int id, Fragment fragment) {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(id, fragment, fragment.toString());
+        ft.addToBackStack(null);
+        ft.commit();
     }
 }
