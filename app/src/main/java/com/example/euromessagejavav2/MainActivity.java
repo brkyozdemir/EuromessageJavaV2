@@ -1,6 +1,7 @@
 package com.example.euromessagejavav2;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -21,6 +22,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.euromessagejavav2.Fragments.CategoryFragment;
 import com.example.euromessagejavav2.Fragments.ProductsFragment;
+import com.example.euromessagejavav2.SaveSharedPreference.SaveSharedPreference;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -68,16 +70,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (SaveSharedPreference.getUserName(MainActivity.this).length() == 0) {
+            Intent i = new Intent(this,
+                    LoginActivity.class);
+            startActivity(i);
+            finish();
+        }
+
+        Log.w("Berkay.SavedPreferences", SaveSharedPreference.getToken(this));
+        Log.w("Berkay.SavedPreferences", SaveSharedPreference.getUserName(this));
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(null);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
 
         Intent intent = getIntent();
-        appToken = intent.getStringExtra("token");
+        appToken = SaveSharedPreference.getToken(this);
         Log.w("Berkay", appToken);
-        String email = intent.getStringExtra("username");
+        String email = SaveSharedPreference.getUserName(this);
 
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -219,6 +232,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_categories:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new CategoryFragment()).commit();
+                break;
+            case R.id.nav_signout:
+                SaveSharedPreference.clearUserName(getApplicationContext());
+                Intent i = new Intent(this,
+                        LoginActivity.class);
+                startActivity(i);
+                finish();
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);

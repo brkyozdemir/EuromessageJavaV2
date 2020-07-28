@@ -1,14 +1,29 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="LightTheme" parent="Theme.AppCompat.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/whiteMain</item>
+        <item name="colorPrimaryDark">@color/thirdMain</item>
+        <item name="colorAccent">@color/thirdMain</item>
+        <item name="colorScheme">@color/whiteMain</item>
         <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@color/whiteMain</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
+<!--        <item name="android:statusBarColor">@android:color/transparent</item>-->
+    </style>
+
+    <style name="DarkTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/main</item>
+        <item name="colorPrimaryDark">@color/secondaryMain</item>
+        <item name="colorAccent">@color/thirdMain</item>
+        <item name="colorScheme">@color/whiteMain</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@color/main</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!--        <item name="android:statusBarColor">@android:color/transparent</item>-->
     </style>
 
 </resources>

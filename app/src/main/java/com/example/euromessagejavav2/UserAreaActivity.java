@@ -51,6 +51,7 @@ public class UserAreaActivity extends Fragment {
     private static final int FIRST_ITEM_CAROUSEL = 0;
     private String pushToken;
     private ProgressDialog progressDialog;
+    private boolean darkTheme = true;
 
 
     @Nullable

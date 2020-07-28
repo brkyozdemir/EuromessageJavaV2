@@ -12,6 +12,7 @@
 
     <item android:id="@+id/bottomNav_comingSoon"
         android:icon="@drawable/ic_products"
-        android:title="Coming Soon..."/>
+        android:title="Coming Soon"/>
+
 
 </menu>

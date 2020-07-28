@@ -50,7 +50,6 @@
         android:layout_height="60dp"
         android:fontFamily="@font/poppins_light"
         android:padding="15dp"
-        android:textColorHint="@color/colorPrimary"
         android:layout_below="@+id/et_name"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="45dp"
@@ -137,7 +136,7 @@
         android:layout_below="@+id/et_reg_password"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:text="Register" />
+        android:text="Regıster" />
 
     <TextView
         android:id="@+id/backToLogin"

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".UserAreaActivity"
-    android:background="#fff">
+    android:background="@color/whiteMain">
 
     <ImageView
         android:id="@+id/euromsgJava"
@@ -15,7 +15,6 @@
         android:src="@drawable/express"
         android:textSize="50px"
         android:padding="16px"
-        android:textColor="@color/colorPrimary"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@id/areaUsername" />
@@ -31,7 +30,7 @@
         android:padding="16dp"
         android:layout_marginRight="8dp"
         android:layout_marginLeft="8dp"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/secondaryMain"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -47,7 +46,7 @@
         app:layout_constraintBottom_toTopOf="@id/token"
         android:text="username"
         android:padding="16dp"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/secondaryMain"
         android:textSize="50px"
         android:layout_marginBottom="16px"
         android:background="@drawable/btn_rounded"/>
@@ -58,7 +57,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins"
         android:text="For more information check RMC"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/secondaryMain"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

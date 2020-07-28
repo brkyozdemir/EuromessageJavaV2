@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="3dp"
-    android:background="#ccc">
+    android:padding="3dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card"
@@ -15,21 +14,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:cardElevation="8dp"
+        android:padding="3dp"
         app:cardCornerRadius="8dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/card_edge"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="5dp">
-
-            <ImageView
-                android:id="@+id/iv_for_category"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:src="@mipmap/ic_launcher_round"/>
 
             <TextView
                 android:id="@+id/tv_title_category"
@@ -43,8 +39,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 android:text="Product Name"
-                app:layout_constraintStart_toEndOf="@id/iv_for_category"
                 android:textSize="20sp"
                 android:textColor="#fff"
                 app:layout_constraintVertical_bias="0.1200005"/>

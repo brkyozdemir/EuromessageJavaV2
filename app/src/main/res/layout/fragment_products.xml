@@ -9,7 +9,7 @@
         android:fontFamily="@font/poppins_light"
         android:textSize="30sp"
         android:visibility="invisible"
-        android:textColor="@color/colorPrimary"
+        android:textColor="#fff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ürün Bulunmamaktadır."/>

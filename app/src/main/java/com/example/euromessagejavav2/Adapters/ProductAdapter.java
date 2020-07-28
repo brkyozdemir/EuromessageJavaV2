@@ -15,6 +15,7 @@ import com.example.euromessagejavav2.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+import java.util.Random;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
@@ -40,11 +41,15 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         String imageUrl = model.getImageUrl();
         String title = model.getName();
         String description = model.getPrice();
-        if(description.equals("0")){
-            description = "10";
-        }
+
+        Random rand = new Random();
+
+        // nextInt is normally exclusive of the top value,
+        // so add 1 to make it inclusive
+        int randomNum = rand.nextInt((75 - 60) + 1) + 60;
+
         holder.textTitle.setText(title);
-        holder.textDescription.setText(description + " TL");
+        holder.textDescription.setText(randomNum + " TL");
         Picasso.get().load("https://store.therelated.com/media/catalog/product"+imageUrl).fit().centerInside().into(holder.productImage);
 
 

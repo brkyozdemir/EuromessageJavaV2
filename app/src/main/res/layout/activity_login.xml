@@ -56,7 +56,6 @@
         android:fontFamily="@font/poppins_light"
         android:padding="25dp"
         android:src="@drawable/euromsg"
-        android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toTopOf="@id/username"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintLeft_toLeftOf="parent"

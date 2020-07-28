@@ -14,6 +14,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.euromessagejavav2.SaveSharedPreference.SaveSharedPreference;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -38,8 +40,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         progressDialog = new ProgressDialog(this);
-
-
 
         signIn = findViewById(R.id.signInBtn);
         mUsername = findViewById(R.id.username);
@@ -100,10 +100,13 @@ public class LoginActivity extends AppCompatActivity {
                 response = okHttpClient.newCall(request).execute();
                 System.out.println(json.toString());
                 if (response.message().equals("OK")) {
+                    String token = response.body().string();
                     progressDialog.dismiss();
+                    SaveSharedPreference.setUserName(getApplicationContext(),Email);
+                    SaveSharedPreference.setToken(getApplicationContext(),token);
                     Intent i = new Intent(LoginActivity.this,
                             MainActivity.class);
-                    i.putExtra("token", response.body().string());
+                    i.putExtra("token", token);
                     i.putExtra("username", Email);
                     startActivity(i);
                     finish();
